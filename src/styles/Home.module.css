@@ -1,0 +1,981 @@
+.homeSection {
+  background-color: #fde048;
+  padding: 130px 15px 100px;
+  overflow-x: clip;
+  z-index: 1;
+  position: relative;
+}
+
+.homeLogo {
+  width: 250px;
+  height: 250px;
+}
+
+.homeLeftBox {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.leftContentBox {
+  display: inline-block;
+}
+
+.homeTitleBox {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.homeTitle {
+  font-family: 'Baloo';
+  font-size: 72px;
+  line-height: 70px;
+  color: #000;
+  text-transform: uppercase;
+  display: flex;
+  text-shadow: 1px 1px 1px BLACK;
+}
+
+.homeTitle.textRed {
+  color: #f8462c;
+}
+
+.mobileHomeBtnContainer {
+  display: none;
+  justify-content: center;
+}
+
+/* Presake */
+
+.presale-control-box-container {
+  position: relative;
+  max-width: 490px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 100px;
+  width: 100%;
+}
+
+.presale-title-text {
+  width: 100%;
+  font-family: 'Baloo';
+  font-size: 75px;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.next-stage-waiting-container {
+  width: 100%;
+  background-color: #000000;
+  border-radius: 30px;
+  padding: 30px;
+  z-index: 1;
+}
+
+.time-count-down-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.time-count-down-container>.time-box {
+  width: 65px;
+  height: 40px;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'SFProTextBold';
+  margin-right: 10px;
+  margin-top: 10px;
+  position: relative;
+}
+
+.time-count-down-container>.time-box:last-child {
+  margin-right: 0px;
+}
+
+.presale-count-down-large-text {
+  font-family: 'SFProTextBold';
+  font-size: 18px;
+  color: #FFFFFF;
+  text-align: center;
+  margin: 10px 0;
+  text-transform: uppercase;
+}
+
+.next-stage-waiting-container>.progrss-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);
+}
+
+.next-stage-waiting-container>.progrss-bar>.progress-status {
+  height: 100%;
+  background-color: #fde048;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  box-shadow: 0 0 10px 3px rgb(0 0 0 / 50%);
+}
+
+.next-price-text {
+  text-align: center;
+  color: #000000;
+  font-family: 'SFProTextBold';
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  font-size: 13px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.usdt-raised-text {
+  justify-content: space-between;
+  color: #ffffff;
+  font-family: 'SFProTextBold';
+  font-size: 20px;
+  margin: 10px 0 0;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.border-yellow {
+  border: #fde048 1px solid;
+}
+
+.ref-link {
+  text-align: center;
+  color: #ffffff;
+  font-family: 'SFProTextBold';
+  font-size: 16px;
+  margin: 10px 0 0;
+}
+
+.referalLinkContainer {
+  padding-top: 10px;
+  border-top: 1px gray solid;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.referralLink {
+  padding: 8px 20px;
+  background: #fff;
+  color: #000;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: 'SFProTextBold';
+  cursor: pointer;
+}
+
+.referalLabel {
+  flex: 1;
+  color: #fff;
+  margin: 0;
+  max-width: 170px;
+  font-family: 'SFProText';
+  line-height: 20px;
+  font-size: 18px;
+}
+
+.priceCurrentListing {
+  width: 100%;
+  display: flex;
+  padding-top: 15px;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.listingItem {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px #fff;
+  padding: 18px 0 10px;
+  border-radius: 10px;
+  max-width: 160px;
+}
+
+.listItemTitle {
+  color: #ffffff;
+  font-family: 'SFProText';
+  font-size: 14px;
+  position: absolute;
+  top: 7px;
+  display: block;
+  background-color: #000;
+  padding: 0 10px;
+}
+
+.listItemVal {
+  color: #ffffff;
+  font-family: 'SFProText';
+  font-size: 18px;
+}
+
+.buy-coin-control-container {
+  width: calc(100% - 30px);
+  padding: 40px 20px;
+  border: solid 2px #000000;
+  margin-top: -25px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #ffffff;
+}
+
+.currency-compare-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.currency-compare-box::before {
+  content: '';
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  background-color: #b7bfc5;
+  top: 15px;
+}
+
+.currency-compare-text {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: 'SFProTextBold';
+  font-size: 14px;
+  margin: 0;
+  z-index: 1;
+  padding: 5px 10px;
+}
+
+.pay-method-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 8px;
+  width: 100%;
+  position: relative;
+}
+
+.currencySelect {
+  width: 100%;
+  background-color: #f1f4f6;
+  font-family: 'SFProText';
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currencySelect.open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.currencyListContainer {
+  position: absolute;
+  width: 100%;
+  top: 44px;
+  left: 0;
+  background-color: #f1f4f6;
+  padding: 10px;
+  margin: 0;
+  z-index: 1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: solid 1px #b7bfc5;
+}
+
+.menuItem {
+  display: flex;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'SFProText';
+  border-radius: 6px;
+}
+
+.dropndownImg {
+  width: 13px;
+  margin-left: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropndownImg.open {
+  transform: rotate(180deg);
+}
+
+.menuItem:hover {
+  background-color: #e0e6ea;
+}
+
+.coinImg {
+  margin-right: 10px;
+}
+
+.currency-select-btn:hover {
+  background-color: #cfe0eb !important;
+}
+
+.currency-select-btn-img {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+}
+
+.currency-btn-selected {
+  border: solid 1px !important;
+}
+
+.currency-balance-status-box {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px #b7bfc5;
+}
+
+.currency-balance-status-text {
+  font-family: 'SFProText';
+  width: 100%;
+  font-size: 10px;
+  color: #727b83;
+  margin: 0;
+}
+
+.purchased-title {
+  font-family: 'SFProTextBold';
+  color: #727b83;
+  font-size: 12px;
+  margin: 0;
+}
+
+.purchased-amount {
+  font-size: 16px;
+  color: #000;
+  font-family: 'SFProTextBold';
+  margin: 0;
+}
+
+.money-swap-title {
+  display: block;
+  width: 100%;
+  font-family: 'SFProTextBold';
+  color: #727b83;
+  font-size: 12px;
+  position: relative;
+  margin-bottom: 5px;
+}
+
+.max-money-btn {
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.money-input:focus {
+  outline: unset;
+}
+
+.from-box {
+  padding-right: 7px;
+  margin-top: 10px;
+}
+
+.to-box {
+  margin-top: 30px;
+}
+
+.money-input {
+  width: 100%;
+  height: 35px;
+  border: 0;
+  font-family: 'SFProTextBold';
+  font-size: 18px;
+  color: #000;
+  background: transparent;
+  scroll-snap-type: none;
+}
+
+.money-input::-webkit-inner-spin-button,
+.money-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.yellowBadge {
+  background-color: #fde048;
+  border-radius: 5px;
+  padding: 1px 2px;
+  font-weight: bold;
+  color: #000;
+}
+
+.inputContainer {
+  flex: 1;
+}
+
+.input-container {
+  display: flex;
+  position: relative;
+  background-color: #f1f4f6;
+  border-radius: 5px;
+  padding: 5px 10px;
+  align-items: center;
+}
+
+.currency-input-btn-img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 6.5px;
+  right: 4.5px;
+}
+
+.currency-select-btn {
+  background-color: #f1f4f6 !important;
+  color: #727b83 !important;
+  font-family: 'SFProTextBold' !important;
+  font-size: 14px !important;
+  height: 38px;
+  display: flex;
+  border-radius: 7px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  transition: 0.1s all ease-in-out;
+  border: 0px;
+  flex: 1;
+}
+
+.errors {
+  color: rgba(206, 57, 95, 1);
+  background: rgba(206, 57, 95, 0.15);
+  border: 1px solid rgba(206, 57, 95, 0.15);
+  border-radius: 7px;
+  font-family: 'SFProText';
+  width: 100%;
+  font-size: 13px;
+  margin: 0;
+  list-style-type: square;
+  margin-top: 20px;
+  list-style-type: none;
+  padding: 0 5px;
+}
+
+.skeleton .presale-count-down-large-text {
+  height: 21px;
+  width: 300px;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skeleton .usdt-raised-text {
+  margin-left: auto;
+  margin-right: auto;
+  width: 330px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.skeleton .currency-compare-text {
+  width: 176px;
+  height: 31px;
+  border-radius: 5px;
+}
+
+.skeleton button {
+  min-height: 38px;
+}
+
+.skeleton button.large {
+  min-height: 48px;
+}
+
+.skeleton .currency-balance-status-text {
+  width: 130px;
+  height: 15px;
+  margin: 0 auto;
+  border-radius: 3px;
+}
+
+.skeleton .money-swap-title {
+  height: 18px;
+  border-radius: 3px;
+}
+
+.skeleton .input-container {
+  height: 40px;
+  border-radius: 5px;
+}
+
+.skeleton .time-box,
+.skeleton .presale-count-down-large-text,
+.skeleton .progrss-bar,
+.skeleton .usdt-raised-text,
+.skeleton .currency-compare-text,
+.skeleton button,
+.skeleton .currency-balance-status-text,
+.skeleton .money-swap-title,
+.skeleton .input-container {
+  background-color: #e2e5e7;
+  background-image: linear-gradient(90deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0));
+  background-size: 40px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 1s ease infinite;
+}
+
+.claim-btn {
+  background-color: #000;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-left: 4px;
+}
+.priceTextContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+}
+.hehePriceText {
+  color: #fff;
+  font-size: 12px;
+  font-family: "SFProTextBold";
+  margin-bottom: 0;
+}
+.nextStagePrice {
+  color: #fff;
+  font-family: "SFProTextBold";
+  font-size: 14px;
+  text-align: center;
+}
+
+.certikBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 6px 10px 7px;
+  border: solid 2px #000;
+  border-radius: 10px;
+  color: #000;
+  text-decoration: none;
+  font-family: "Baloo";
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.certikBtn img {
+  width: 130px;
+  margin-right: 10px;
+}
+
+/* coin select modal */
+
+.coinSelectModal {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 10;
+}
+
+.selectContainer {
+  background-color: #f1f4f6;
+  border-radius: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 450px;
+  width: 80%;
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleContainer img {
+  cursor: pointer;
+}
+
+.selectContainer h3 {
+  font-family: 'SFProText';
+  font-size: 18px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.searchBarContainer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.searchBarContainer input {
+  border: none;
+  flex: 1;
+  outline: none;
+  background-color: transparent;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #727b83;
+}
+
+.modalHeader {
+  padding: 20px;
+}
+
+.modalBody {
+  padding-right: 10px;
+  height: 230px;
+  overflow-y: auto;
+}
+
+.modalBody::-webkit-scrollbar {
+  margin-right: 20px;
+  width: 7px;
+}
+
+.modalBody::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.modalBody::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #888;
+}
+
+.coinItem {
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.coinItem:hover {
+  background-color: #b7bfc5;
+  border-radius: 7px;
+}
+
+.coinItem .coin {
+  display: flex;
+  align-items: center;
+}
+
+.coinName {
+  padding-left: 15px;
+  font-weight: bold;
+  color: #727b83;
+  font-size: 14px;
+}
+
+.scrollContainer {
+  padding: 10px;
+}
+
+.heheImg {
+  width: 450px;
+  height: 460px;
+  background-image: unset;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 120px;
+  left: 250px;
+  z-index: 6;
+  box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.heheWidget {
+  background-image: unset;
+  background-size: cover;
+  background-repeat: no-repeat;
+  left: 250px;
+  box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  margin-top: 30px;
+  position: absolute;
+  top: 60px;
+  width: 375px;
+}
+@media (max-width: 1279px) {
+  .heheWidget {
+    /* left: 250px; */
+    top: 0;
+    position: initial;
+    margin: auto;
+    margin-top: 30px;
+  }
+}
+
+.headerParallaxImg {
+  cursor: pointer;
+}
+
+.emojiSnot {
+  width: 90px;
+  height: 90px;
+  background-image: url(/images/emoji/smile_snot.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 9;
+  top: 400px;
+  left: 160px;
+}
+
+.emojiSmileOne {
+  width: 80px;
+  height: 80px;
+  background-image: url('/images/emoji/smile.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 8;
+  top: 50px;
+  left: 200px;
+}
+
+.emojiSmileTwo {
+  width: 90px;
+  height: 90px;
+  background-image: url('/images/emoji/smile.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 7;
+  top: 250px;
+  left: 700px;
+}
+
+.btnContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  align-items: center;
+}
+
+.cexPlatformContainer {
+  width: 100%;
+  max-width: 1700px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.socialBtn {
+  display: flex;
+  font-family: "Baloo";
+  color: #000;
+  border: solid 1px #000000;
+  text-decoration: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 50px 10px;
+  border-radius: 40px;
+  font-size: 24px;
+}
+
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+
+/* end */
+@media (max-width: 1366px) {
+  .homeTitle {
+    font-size: 52px;
+    line-height: 50px;
+  }
+
+  .homeBtnBox {
+    max-width: 540px;
+  }
+
+  .homeBtn {
+    font-size: 18px;
+    width: 250px;
+    padding: 20px 0;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+  .cexPlatformContainer {
+    padding: 0px;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .skeleton .presale-count-down-large-text {
+    width: 240px;
+  }
+
+  .skeleton .usdt-raised-text {
+    width: 250px;
+  }
+
+  .homeTitle {
+    font-size: 36px;
+    line-height: 36px;
+    display: block;
+    position: relative;
+    text-align: center;
+  }
+
+  .homeTitle>img {
+    width: 33px;
+    height: 33px;
+    position: absolute;
+    bottom: 3px;
+    right: calc(50% - 100px);
+  }
+
+  .homeTitleBox {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+
+  .homeLeftBox {
+    justify-content: center;
+  }
+
+  .leftContentBox {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .homeBtn {
+    margin-right: 0;
+  }
+
+  .mobileHomeBtnContainer {
+    display: flex;
+  }
+
+  .presale-control-box-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .presale-bg-image {
+    display: none;
+  }
+
+  .presale-main-content {
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+
+  .socialBtn {
+    padding: 10px 20px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .homeSection {
+    padding: 80px 30px 30px;
+  }
+  .certikBtn {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .presale-main-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .presale-bg-image {
+    display: none;
+  }
+
+  .presale-control-box-container {
+    margin: 0 auto;
+  }
+
+  .presale-title-text {
+    font-size: 50px;
+  }
+
+  .referalLinkContainer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .referalLabel {
+    font-size: 12px;
+  }
+
+  .referralLink {
+    font-size: 16px;
+  }
+
+  .next-stage-waiting-container {
+    padding: 18px;
+  }
+
+  .btnContainer {
+    gap: 20px;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+  .socialBtn {
+    width: 250px;
+    color: #fff;
+    background-color: #000;
+  }
+}

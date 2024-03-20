@@ -1,0 +1,166 @@
+.parallaxContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    z-index: 1;
+}
+.pikatokenSection {
+    background-color: #FFF;
+    position: relative;
+    margin-top: -10px;
+    padding-left: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 20px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.pikatoken-container {
+    width: 100%;
+    padding: 100px;
+    background-color: #EFE8E3;
+    border-radius: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.pikatoken-title-text {
+    font-family: 'Baloo';
+    font-size: 75px;
+    line-height: 60px;
+    width: 100%;
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.pikatoken-description-text {
+    font-family: "BalooSemiBold";
+    font-size: 18px;
+    color: #000;
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 0;
+}
+
+.roadmap-coin-one {
+    position: absolute;
+    width: 50px;
+    top: 30px;
+    left: 100px;
+    z-index: 1;
+}
+
+.roadmap-coin-two {
+    position: absolute;
+    width: 40px;
+    top: -20px;
+    left: 200px;
+    z-index: 1;
+}
+
+.roadmap-coin-three {
+    position: absolute;
+    width: 60px;
+    top: -10px;
+    right: 60px;
+    z-index: 1;
+}
+
+.roadmap-piggy-img {
+    width: 180px;
+    position: absolute;
+    bottom: -50px;
+    right: 30px;
+}
+
+@media (max-width: 1400px) {}
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 1024px) {
+    .roadmap-coin-one {
+        width: 40px;
+        top: 20px;
+        left: 40px;
+    }
+
+    .roadmap-coin-two {
+        width: 35px;
+        top: -15px;
+        left: 230px;
+    }
+
+    .roadmap-coin-three {
+        width: 45px;
+        top: 15px;
+        right: 30px;
+    }
+
+    .roadmap-piggy-img {
+        width: 150px;
+        bottom: -40px;
+        right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pikatoken-container {
+        border-radius: 50px;
+    }
+
+    .pikatoken-title-text {
+        font-size: 50px;
+        line-height: 45px;
+        margin-bottom: 30px;
+    }
+
+    .pikatoken-description-text {
+        font-size: 15px;
+    }
+
+    .roadmap-coin-one {
+        width: 40px;
+        top: 20px;
+        left: 40px;
+    }
+
+    .roadmap-coin-two {
+        width: 35px;
+        top: -15px;
+        left: 230px;
+    }
+
+    .roadmap-coin-three {
+        width: 45px;
+        top: 15px;
+        right: 30px;
+    }
+
+    .roadmap-piggy-img {
+        width: 120px;
+        bottom: -80px;
+        right: calc(50% - 60px);
+    }
+}
+
+@media (max-width: 576px) {
+    .pikatoken-container-fluid {
+        padding-bottom: 20px;
+    }
+
+    .pikatoken-container {
+        padding: 50px 30px 50px;
+        border-radius: 30px;
+    }
+}

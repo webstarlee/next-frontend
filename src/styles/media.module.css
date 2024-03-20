@@ -1,0 +1,140 @@
+.mediaSection {
+  padding: 10px 20px 100px;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sliderControlBtn {
+  cursor: pointer;
+}
+
+.mediaContainer {
+  width: 80%;
+  max-width: 1200px;
+  margin-top: 50px;
+}
+
+.mediaTitle {
+  font-family: 'Baloo';
+  font-size: 72px;
+  color: #000;
+  line-height: 70px;
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+  padding: 0 10px;
+  background-color: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.mediaTitle > span {
+  color: #f8462c;
+}
+
+.mediaBoxContainer {
+  padding: 20px 0;
+}
+
+.mediaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #efe8e3;
+  height: 240px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.mediaBox img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.mediaBox > a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  /* box-shadow: 1px 1px 7px 3px rgba(0, 0, 0, 0.3); */
+  border-radius: 20px;
+  max-width: 300px;
+}
+
+.mediaBox > p {
+  font-family: 'BalooSemiBold';
+  font-size: 16px;
+  margin-top: 10px;
+  max-width: 385px;
+  margin-bottom: 0;
+}
+
+.mediaBoxFlexStart {
+  align-items: start;
+}
+
+.postContent {
+  text-transform: capitalize;
+  word-break: break-word;
+}
+
+.playButton {
+  width: 20px;
+  height: 20px;
+  position: 'absolute';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.postHeader {
+  align-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.posterInfo {
+  display: flex;
+  flex-direction: column;
+}
+.posterName {
+  font-family: 'SFProTextBold';
+  margin: 0;
+  font-size: 13px;
+}
+
+.posterHandle {
+  font-family: 'SFProText';
+  color: #828282;
+  font-size: 12px;
+  margin: 0;
+}
+
+.mediaUrlLink {
+  text-decoration: none;
+  color: #000;
+}
+
+@media (max-width: 1024px) {
+  .mediaTitle {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 576px) {
+  .sliderControlBtn {
+    display: none;
+  }
+
+  .mediaBoxContainer {
+    padding: 0;
+  }
+  .mediaContainer {
+    width: 100%;
+  }
+}

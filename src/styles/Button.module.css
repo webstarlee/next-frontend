@@ -1,0 +1,83 @@
+.btn {
+  border: 2px solid #000;
+  background-color: #000;
+  font-family: Baloo;
+  color: #fff;
+  font-size: 20px;
+  line-height: 15px;
+  padding: 15px 25px 13px;
+  border-radius: 30px;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+.circle {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .btn>svg {
+    width: 24px;
+    height: 24px;
+} */
+
+.btn:hover svg > rect {
+  fill: #000;
+}
+.btn-lg {
+  font-size: 25px;
+  padding: 15px 20px 13px;
+}
+.btn.fullWidth {
+  width: 100%;
+}
+.btn.outline {
+  background-color: transparent;
+  color: #000;
+}
+.btn.outline:hover {
+  background-color: #000;
+  color: #fff;
+}
+.btn.text-white-blue {
+  background-color: #f1f4f6;
+  border-color: #f1f4f6;
+  color: #535353;
+}
+.btn.text-white-blue:hover {
+  background-color: #c9dfed;
+  border-color: #c9dfed;
+  color: #333232;
+}
+.disabled {
+  pointer-events: none;
+  background-color: gray;
+}
+
+@media (max-width: 1366px) {
+  .btn {
+    font-size: 15px;
+    padding: 15px;
+  }
+  .circle {
+    padding: 0;
+  }
+
+  .icon {
+    padding: 0;
+  }
+}

@@ -1,0 +1,131 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@font-face {
+  font-family: 'Baloo';
+  src: url("/fonts/Baloo.woff")format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BalooBold';
+  src: url('/fonts/baloo_bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'BalooRegular';
+  src: url('/fonts/BalooRegular.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BalooSemiBold';
+  src: url('/fonts/BalooSemiBold.woff') format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFProText';
+  src: url('/fonts/SFProTextRegular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFProTextBold';
+  src: url('/fonts/SFProTextBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: #FDE048!important;
+}
+#w3m-modal {
+  z-index: 100;
+}
+.section {
+  width: 100%;
+}
+
+.family-sfprobold {
+  font-family: 'SFProTextBold' !important;
+}
+
+.bg-bronze {
+  background-color: #faa34a;
+}
+
+.bg-gold {
+  background-color: #fde048;
+}
+
+.bg-gray {
+  background-color: #c7c0d9;
+}
+
+.bg-silver {
+  background-color: #efe8e3;
+}
+
+.bg-iron {
+  background-color: #f8462c;
+}
+.twitter-tweet.twitter-tweet-rendered {
+  margin: 0!important;
+  display: block!important;
+}
+
+.carousel-box>div>div>.twitter-tweet.twitter-tweet-rendered {
+  width: 250px!important;
+}
+
+.slick-slide > div {
+  margin: 0 20px;
+}
+
+.margin {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.big-post-twitter iframe {
+  width: 100%!important
+}
+
+@media (max-width: 1366px) {
+  .margin {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* @media (min-width: 1366px) {
+  .big-post-twitter iframe {
+    width: 450px!important;
+  }
+} */

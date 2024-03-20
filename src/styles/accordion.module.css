@@ -1,0 +1,53 @@
+.accordion {
+    width: 100%;
+    background-color: #FDE048;
+    border-radius: 32px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    margin-top: 20px;
+}
+.accordion.active {
+    background-color: #FAA34A;
+}
+
+.accordion-header {
+    background-color: transparent;
+    padding: 25px 30px 23px;
+    cursor: pointer;
+    font-family: 'BalooBold';
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    font-family: 'BalooSemiBold';
+    font-size: 14px;
+    line-height: 15px;
+    transition: max-height 0.2s ease-out;
+}
+.accordion-content> p {
+    font-family: 'BalooSemiBold';
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.active {
+    max-height: 500px;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.accordion-toggle-img {
+    position: absolute;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    top: 20px;
+    right: 20px;
+}
+.accordion-toggle-img.open {
+    transform: rotate(45deg);
+}

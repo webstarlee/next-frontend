@@ -1,0 +1,139 @@
+.communityParallaxContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+}
+
+.boxLineContainer {
+    width: 200%;
+    height: 43px;
+    overflow: hidden;
+    position: absolute;
+    left: -50%;
+}
+
+.faqCoin {
+    position: absolute;
+    width: 40px;
+    right: calc(50% - 500px);
+    top: 30%;
+    z-index: 1;
+}
+
+.lineBoxStyle {
+    display: inline-block;
+    color: #FFFFFF;
+    font-family: 'BalooRegular';
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    background-color: #000;
+}
+
+.faq-cotainer-fluid {
+    background-color: #FFFFFF;
+    padding: 100px 20px 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-container {
+    max-width: 650px;
+    position: relative;
+}
+
+.faq-title-description-text-container {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: 100px;
+}
+
+.faq-title-text {
+    font-family: 'Baloo';
+    font-size: 75px;
+    color: #000000;
+    width: 160px;
+    position: relative;
+}
+
+.faq-description-text {
+    font-family: 'BalooSemiBold';
+    font-size: 18px;
+    color: #000000;
+}
+
+.faq-question-top-img {
+    width: 55px;
+    position: absolute;
+    top: -60px;
+    right: -40px;
+}
+
+.faq-question-bottom-img {
+    width: 17px;
+    position: absolute;
+    top: 40px;
+    right: -5px;
+}
+
+.faqSadPiggy {
+    position: absolute;
+    width: 300px;
+    left: -400px;
+    bottom: -120px;
+}
+
+@media (max-width: 1024px) {
+    .faq-cotainer-fluid {
+        padding: 25px 0 220px;
+    }
+
+    .faq-title-description-text-container {
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .faq-description-text {
+        text-align: center;
+    }
+
+    .faq-question-top-img {
+        width: 35px;
+        top: 0px;
+        left: 150px;
+    }
+
+    .faq-question-bottom-img {
+        width: 12px;
+        position: absolute;
+        top: 63px;
+        left: 153px;
+    }
+
+    .faq-container {
+        margin: 0 auto;
+    }
+
+    .faqSadPiggy {
+        display: none;
+    }
+    .faqCoin {
+        right: calc(50% - 130px);
+    }
+    .faq-title-text {
+        font-size: 52px;
+    }
+}

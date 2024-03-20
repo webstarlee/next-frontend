@@ -1,0 +1,399 @@
+.container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+.container:before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.contentsContainer {
+  max-width: 800px;
+  background-color: #fff;
+  height: fit-content;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  padding: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.closeButtonContainer {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.title {
+  font-family: 'Baloo';
+  text-transform: uppercase;
+  font-size: 32px;
+  margin: 0;
+}
+
+.topOutlineContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.outline {
+  padding: 20px 30px;
+  border: 2px solid black;
+  border-radius: 8px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.outline .icon {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 120%;
+}
+
+.outline .explain {
+  margin: 0;
+  font-family: 'SFProText';
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: #f1f4f6;
+}
+
+.subTitle {
+  margin: 0;
+  font-family: 'SFProText';
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.receiveSection {
+  display: flex;
+  align-items: center;
+}
+
+.receiveSection h4 {
+  margin: 0;
+  color: #727b83;
+  font-family: 'SFProText';
+  font-size: 20px;
+}
+
+.you {
+  flex: 1;
+  border-right: 2px #f1f4f6 solid;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-right: 50px;
+}
+
+.percentLabelContainer {
+  display: flex;
+  gap: 50px;
+  justify-content: space-between;
+}
+
+.percentLabelContainer span {
+  font-size: 26px;
+  font-family: 'SFProText';
+  font-weight: bold;
+  text-align: center;
+}
+
+.friend {
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.generateReferalLinkButton {
+  width: 100%;
+  padding: 21px;
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 20px;
+  font-family: 'SFProText';
+  cursor: pointer;
+}
+
+.affiliateLinksHeader {
+  display: flex;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f1f4f6;
+  overflow: auto;
+  width: 100%;
+}
+
+.affiliateLinksHeader p {
+  font-size: 14px;
+  font-family: 'SFProText';
+  margin: 0;
+  font-weight: bold;
+}
+
+.affiliateLinksHeader p:first-child {
+  flex: 1;
+}
+
+.affiliateLinksHeader p:last-child {
+  width: 40%;
+}
+
+.linkItem {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 100px;
+  border-bottom: 1px solid #f1f4f6;
+}
+
+.linkItem p {
+  margin: 0;
+  color: #5b5b5b;
+  font-size: 20px;
+  font-family: 'SFProText';
+  font-weight: bold;
+}
+
+.linkItem p:first-child {
+  flex: 1;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  background-color: #f1f4f6;
+  color: #535353;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.copyButton:hover {
+  background-color: #d0d8dd;
+}
+
+.copyButton span {
+  font-family: 'SFProText';
+  padding-left: 5px;
+}
+
+.pageNationContainer {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+}
+
+.pageNationButton {
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pageNationButton:hover {
+  background-color: #111;
+}
+
+.pageNationContainer span {
+  font-weight: bold;
+  font-size: 24px;
+  font-family: 'SFProText';
+}
+
+.pageNationActive {
+  text-decoration: underline;
+}
+
+.yellowBadge {
+  background-color: #fde048;
+  border-radius: 5px;
+  padding: 1px 2px;
+  font-weight: bold;
+}
+
+.sliderContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sliderItem {
+  border: 1px solid #c7cbce;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.passed {
+  border: 2px solid #fde048;
+  background-color: #fde048;
+}
+
+.selected {
+  border: 2px solid #fde048;
+}
+
+.selected .itemDot {
+  background-color: #fde048;
+}
+
+.itemDot {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.passedItemLine {
+  height: 2px;
+  background: #fde048;
+  flex: 1;
+}
+
+.itemLine {
+  height: 2px;
+  background: #c7cbce;
+  flex: 1;
+}
+
+@media (max-width: 1200px) {
+  .closeButtonContainer {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #000;
+    border-radius: 50%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentsContainer {
+    max-width: 600px;
+  }
+  .topOutlineContainer {
+    flex-direction: column;
+  }
+  .receiveSection {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+  }
+  .you,
+  .friend {
+    padding: 0;
+  }
+  .you {
+    width: 100%;
+    border: none;
+  }
+  .itemDot {
+    width: 30px;
+    height: 30px;
+  }
+  .pageNationContainer {
+    gap: 10px;
+  }
+  .pageNationButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .linkItem {
+    gap: 30px;
+  }
+
+  .linkItem p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .itemDot {
+    width: 15px;
+    height: 15px;
+  }
+  .percentLabelContainer {
+    gap: 10px;
+  }
+  .percentLabelContainer span {
+    font-size: 16px;
+  }
+  .generateReferalLinkButton {
+    font-size: 16px;
+    padding: 7px;
+  }
+  .linkItem p {
+    font-size: 12px;
+  }
+  .linkItem {
+    gap: 10px;
+  }
+  .affiliateLinksHeader {
+    gap: 10px;
+  }
+  .affiliateLinksHeader p:last-child {
+    width: auto;
+    flex: 1;
+  }
+  .affiliateLinksHeader p {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contentsContainer {
+    width: 90%;
+  }
+  .copyButton span {
+    display: none;
+  }
+}

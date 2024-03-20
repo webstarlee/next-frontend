@@ -1,0 +1,235 @@
+.howtobyParallaxContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+
+.boxLineContainer {
+  width: 200%;
+  height: 43px;
+  overflow: hidden;
+  position: absolute;
+  left: -50%;
+}
+
+.lineBoxStyle {
+  display: inline-block;
+  color: #FFFFFF;
+  font-family: 'BalooRegular';
+  font-size: 18px;
+  padding: 8px 15px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  transform: rotate(180deg);
+  background-color: #807A8F;
+}
+
+.mainContent {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  background-color: #FFFFFF;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+.titleHowTOBuy {
+  font-size: 75px;
+  font-family: "Baloo";
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 70px;
+  position: relative;
+  display: inline-flex;
+  margin-right: 200px;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.underlineImg {
+  position: absolute;
+  width: 250px;
+  right: -10px;
+  bottom: -5px;
+}
+
+.titlePikachu {
+  font-size: 75px;
+  font-family: "Baloo";
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 70px;
+  display: inline-flex;
+  margin-right: 100px;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.titleToken {
+  font-size: 75px;
+  font-family: "Baloo";
+  text-transform: uppercase;
+  color: #000000;
+  line-height: 70px;
+  display: inline-flex;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.descriptionContent {
+  font-size: 20px;
+  font-family: "BalooSemiBold";
+  color: #000000;
+  line-height: 20px;
+  display: inline-flex;
+  max-width: 450px;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.descriptionBoxContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.descriptionGrid {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.descriptionBox {
+  background-color: #000000;
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.descriptionBox>h2 {
+  font-family: 'Baloo';
+  font-size: 75px;
+  line-height: 70px;
+  color: #FFF;
+}
+
+.descriptionBox>p {
+  font-family: 'BalooSemibold';
+  color: #FFF;
+  font-size: 18px;
+  margin-top: 30px;
+}
+
+.secondBox {
+  margin-top: 150px;
+}
+
+.thirdBox {
+  margin-top: 30px;
+}
+
+.memeCoinImg {
+  position: absolute;
+  width: 200px;
+  right: 0;
+  bottom: -150px;
+}
+
+.moreInfo {
+  position: absolute;
+  font-family: 'BalooSemibold';
+  color: #000;
+  font-size: 20px;
+  bottom: -40px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.moreinfoImg {
+  position: absolute;
+  width: 30px;
+  bottom: 5px;
+  right: -35px;
+}
+
+@media (max-width: 1366px) {
+  .titleHowTOBuy {
+    margin-right: 120px;
+  }
+
+  .titlePikachu {
+    margin-right: 70px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .titleContainer {
+    max-width: 300px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .titleHowTOBuy {
+    font-size: 36px;
+    line-height: 36px;
+    margin-right: 0;
+  }
+
+  .titlePikachu {
+    font-size: 36px;
+    line-height: 36px;
+    margin-right: 0;
+  }
+
+  .titleToken {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .underlineImg {
+    width: 180px;
+  }
+
+  .descriptionContent {
+    text-align: center;
+    font-size: 16px;
+    max-width: 299px;
+  }
+
+  .secondBox {
+    margin-top: 0;
+  }
+  
+  .thirdBox {
+    margin-top: 0;
+  }
+  
+  .memeCoinImg {
+    width: 140px;
+    right: -20px;
+    bottom: -100px;
+    z-index: 1;
+  }
+  
+}

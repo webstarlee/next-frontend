@@ -1,0 +1,335 @@
+.presaleSection {
+    position: relative;
+    background-color: #fff;
+    margin-top: -10px;
+    overflow-x: clip;
+    z-index: 2;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.presale-main-content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.presale-bg-image {
+    width: 570px;
+    margin-top: 80px;
+    margin-left: -20px;
+}
+
+
+.carouselBox {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+    position: relative;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.carouselBox>div {
+    display: inline-flex;
+    position: relative;
+    z-index: 1;
+}
+
+.arrowNextImg {
+    filter: invert(1);
+    width: 30px;
+}
+
+.arrowPevImg {
+    filter: invert(1);
+    width: 30px;
+    transform: rotate(180deg);
+}
+
+.preBtn {
+    position: absolute;
+    left: -10px;
+    top: calc(50% - 15px);
+    ;
+}
+
+.nextBtn {
+    position: absolute;
+    right: -10px;
+    top: calc(50% - 15px);
+    ;
+}
+
+.carouselBox>div.twitterLoder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 0;
+}
+
+@keyframes loader {
+    0% {
+        left: -100px
+    }
+
+    100% {
+        left: 110%;
+    }
+}
+
+.twitterLoaderBox {
+    width: 50px;
+    height: 50px;
+    background: #FDE048;
+    animation: animate .5s linear infinite;
+    border-radius: 3px;
+}
+
+@keyframes animate {
+    17% {
+        border-bottom-right-radius: 3px;
+    }
+
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+        transform: translateY(18px) scale(1, .9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
+
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+
+.twitterLoaderShadow {
+    width: 50px;
+    height: 5px;
+    background: #000;
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: shadow .5s linear infinite;
+    margin-top: 12px;
+}
+
+@keyframes shadow {
+    50% {
+        transform: scale(1.2, 1);
+    }
+}
+
+
+.slideDiv {
+    min-height: 350px;
+    display: flex !important;
+    justify-content: center;
+}
+
+.homeBtnBox {
+    width: 100%;
+    max-width: 700px
+}
+
+.homeBtn {
+    width: 315px;
+    padding: 25px 0;
+    border-radius: 70px;
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.twitterContainer {
+    display: flex;
+    align-items: center;
+}
+.homeRightParallax {
+    position: relative;
+    z-index: 0;
+    height: 600px;
+    width: 100%;
+}
+
+.headerParallaxImg {
+    cursor: pointer;
+}
+
+.headerParallaxImg:hover {
+    z-index: 11;
+}
+
+.emojiSnot {
+    width: 90px;
+    height: 90px;
+    background-image: url(/images/emoji/smile_snot.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 9;
+    top: -235px;
+    right: 280px;
+}
+
+.emojiSmileOne {
+    width: 80px;
+    height: 80px;
+    background-image: url('/images/emoji/smile.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 8;
+    top: 250px;
+    right: 645px;
+}
+
+.emojiSmileTwo {
+    width: 90px;
+    height: 90px;
+    background-image: url('/images/emoji/smile.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 7;
+    top: 305px;
+    right: 195px;
+}
+
+.replyToVitalik {
+    width: 300px;
+    min-height: 300px;
+    background-image: unset;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -80px;
+    right: calc(50% - 200px);
+    z-index: 2;
+    box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.myFeedTwo {
+    width: 300px;
+    min-height: 300px;
+    background-image: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 0px;
+    right: calc(50% + 60px);
+    z-index: 4;
+    box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.myFeedOne {
+    width: 300px;
+    min-height: 300px;
+    background-image: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 3;
+    box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.howDoTheyKnow {
+    width: 300px;
+    min-height: 300px;
+    background-image: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    right: calc(50% + 20px);
+    z-index: 1;
+    box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.myFeedThree {
+    width: 300px;
+    min-height: 210px;
+    background-image: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    z-index: 5;
+    box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.hehImg {
+    width: 450px;
+    height: 460px;
+    background-image: unset;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 120px;
+    right: calc(50% - 190px);
+    z-index: 6;
+    box-shadow: 0 1px 10px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+
+@media (max-width: 1024px) {
+    .presale-control-box-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .presale-bg-image {
+        display: none;
+    }
+
+    .presale-main-content {
+        padding-top: 50px;
+        padding-bottom: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .presale-main-content {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .presale-bg-image {
+        display: none;
+    }
+
+    .presale-control-box-container {
+        margin: 0 auto;
+    }
+
+    .presale-title-text {
+        font-size: 50px;
+    }
+}
+
+@media (max-width: 576px) {}

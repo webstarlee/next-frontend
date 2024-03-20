@@ -1,0 +1,375 @@
+.communitySection {
+    background-color: #fff;
+    padding-top: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.commynityTitle {
+    font-family: 'Baloo';
+    font-size: 72px;
+    color: #000;
+    line-height: 70px;
+    text-transform: uppercase;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    padding: 0 10px;
+    background-color: #fff;
+    display: inline-flex;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.commynityTitle>span {
+    color: #F8462C;
+}
+
+.communityBtnContainer {
+    padding-bottom: 100px;
+    text-align: center;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.communityBtn {
+    margin-right: 10px;
+    display: inline-flex;
+    width: 64px;
+    height: 64px;
+    position: relative;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    transition: 0.2s all ease-in-out;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.communityBtn.twitter:hover {
+    background-color: #1c9ceb;
+}
+
+.communityBtn.instagram:hover {
+    background-image: linear-gradient(to bottom right, #833ab4, #fd1d1d, #fcb045);
+}
+
+.communityBtn.facebook:hover {
+    background-color: #1674ea;
+}
+
+.communityBtn.telegram:hover {
+    background-color: #0088cc;
+}
+
+.communityBtn.discord:hover {
+    background-color: #34373d;
+}
+
+.communityBtn.linkedin:hover {
+    background-color: #0e76a8;
+}
+
+.communityBtn.youtube:hover {
+    background-color: #FF0000;
+}
+
+.communityBtn.tiktok:hover {
+    background-image: linear-gradient(to bottom right, #69C9D0, #EE1D52);
+}
+
+.communityIcon {
+    width: 60px;
+    height: 60px;
+    transition: 0.2s all ease-in-out;
+}
+
+.communityIcon:hover {
+    filter: invert(1);
+}
+
+.meme-title-box-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.meme-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+}
+
+.meme-title-text {
+    font-family: 'Baloo';
+    font-size: 75px;
+    line-height: 70px;
+    color: #000000;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    margin-right: 150px;
+    padding: 0 10px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.meme-title-text>img {
+    position: absolute;
+    bottom: -15px;
+    right: 0;
+    z-index: 1;
+}
+
+.meme-title-text:last-child {
+    margin-right: 50px;
+}
+
+
+.community-box-container {
+    min-height: 500px;
+    position: relative;
+}
+
+.community-boxs {
+    position: absolute;
+    padding: 20px 25px;
+    border-radius: 30px;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.community-box {
+    background-color: #EFE8E3;
+    width: 200px;
+    height: 280px;
+    top: 0;
+    bottom: unset;
+    right: unset;
+    left: 0;
+    justify-content: flex-end;
+}
+
+.impression-box {
+    background-color: #FAA34A;
+    width: 320px;
+    height: 180px;
+    top: 100px;
+    left: 220px;
+}
+
+.meme-box {
+    background-color: #FDE048;
+    width: 350px;
+    height: 170px;
+    top: 300px;
+    left: 90px;
+}
+
+.community-boxs-large-text {
+    font-family: 'Baloo';
+    font-size: 52px;
+    color: #000000;
+    text-transform: uppercase;
+    line-height: 42px;
+    margin: 0;
+}
+
+.community-btn-container {
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.community-boxs-small-text {
+    font-family: 'BalooRegular';
+    font-size: 18px;
+    color: #E8643D;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.community-boxs-coin {
+    width: 70px;
+    position: absolute;
+    top: calc(50% - 10px);
+    right: calc(50% - 470px);
+    z-index: 1;
+}
+
+.communityParallaxContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    z-index: 0;
+}
+
+.boxLineContainer {
+    width: 200%;
+    height: 43px;
+    overflow: hidden;
+    position: absolute;
+    left: -50%;
+}
+
+.lineBoxStyle {
+    display: inline-block;
+    color: #FFFFFF;
+    font-family: 'BalooRegular';
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transform: rotate(180deg);
+    background-color: #000;
+}
+
+@media (max-width: 1366px) {
+    .commynityTitle {
+        font-size: 52px;
+        line-height: 50px;
+    }
+    .community-boxs {
+        padding: 15px 20px;
+    }
+
+    .community-box {
+        width: 180px;
+        height: 250px;
+        top: 25px;
+    }
+
+    .impression-box {
+        width: 280px;
+        height: 170px;
+        top: 100px;
+        left: 200px;
+    }
+
+    .meme-box {
+        width: 300px;
+        height: 150px;
+        top: 295px;
+        left: 70px;
+    }
+
+    .community-boxs-large-text {
+        font-size: 40px;
+        line-height: 35px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .commynityTitle {
+        flex-direction: column;
+    }
+    .communitySection {
+        padding-top: 80px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+    .communityParallaxContainer {
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+    }
+    .meme-title-container {
+        align-items: center;
+    }
+
+    .community-box-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .community-box {
+        width: 280px;
+        height: 150px;
+        top: unset;
+        position: relative;
+        left: unset;
+        right: unset;
+        bottom: unset;
+    }
+
+    .impression-box {
+        width: 280px;
+        height: 150px;
+        top: unset;
+        position: relative;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        margin-top: 20px;
+    }
+
+    .meme-box {
+        width: 280px;
+        height: 150px;
+        top: unset;
+        position: relative;
+        left: unset;
+        right: unset;
+        bottom: unset;
+        margin-top: 20px;
+    }
+
+    .meme-title-text {
+        margin-right: 30px;
+    }
+
+    .meme-title-text:last-child {
+        margin-right: unset;
+    }
+    .community-boxs-coin {
+        top: calc(70% - 10px);
+        right: calc(50% - 50px);
+    }
+}
+
+@media (max-width: 768px) {
+    .meme-title-container {
+        align-items: center;
+    }
+
+    .meme-title-text {
+        margin-right: unset;
+    }
+
+    .community-btn-container {
+        padding-bottom: 50px;
+    }
+
+    .community-box-line {
+        top: 50%;
+        left: -200px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .community-box-line {
+        top: 60%;
+        left: -100px !important;
+    }
+
+    .meme-title-text {
+        font-size: 65px;
+    }
+
+    .meme-title-text>img {
+        width: 180px;
+        bottom: -10px;
+    }
+}

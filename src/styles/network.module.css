@@ -1,0 +1,92 @@
+.dropdownContainer {
+  position: relative;
+}
+.chainImg {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+.dropdownBtn {
+  display: flex;
+  padding: 10px 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #f1f4f6;
+  font-family: 'SFProText';
+  font-size: 16px;
+  letter-spacing: -0.2px;
+  min-width: 200px;
+  margin: 0 10px;
+}
+.dropdownBtn.mobile {
+  margin: 0 10px;
+}
+.dropdownBtn:hover {
+  background-color: #e8ecee;
+}
+
+.dropndownImg {
+  width: 13px;
+  margin-left: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.dropndownImg.open {
+  transform: rotate(180deg);
+}
+
+.menuContainer {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  background-color: #f1f4f6;
+  border-radius: 10px;
+  top: 50px;
+  box-shadow: 0 0 5px 1px rgb(0 0 0 / 10%);
+  /* height: 300px;
+    overflow: auto; */
+}
+.menuContainer.mobile {
+  top: 60px;
+}
+.menuItem {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  font-family: 'SFProText';
+  font-size: 16px;
+  border-radius: 6px;
+}
+.menuItem.disconnect {
+  display: none;
+}
+.menuItem.disconnect.mobile {
+  display: flex;
+}
+.menuItem.isActive {
+  background-color: #e0e6ea;
+}
+.menuItem:hover {
+  background-color: #e0e6ea;
+}
+.walletBtnBox {
+  margin-left: 10px;
+}
+.walletBtnBox.mobile {
+  margin: 0;
+  display: none;
+}
+.walletBtn {
+  padding: 8px 20px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50px;
+  font-family: 'SFProText';
+  font-size: 16px;
+  border: solid 2px #000;
+}
+.walletBtn:hover {
+  background-color: #fff;
+  color: #000;
+}

@@ -1,0 +1,109 @@
+.contact-container {
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 100px 20px 150px;
+    position: relative;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+.contact-title-text {
+    font-family: 'Baloo';
+    font-size: 75px;
+    line-height: 60px;
+    width: 100%;
+    color: #000000;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.imgBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.contactImg {
+    width: 140px;
+    height: 140px;
+}
+
+.contactBtnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.contactBtn {
+    border: 2px solid #000;
+    background-color: #000;
+    font-family: Baloo;
+    color: #fff;
+    font-size: 22px;
+    line-height: 15px;
+    padding: 9px 14px 9px;
+    border-radius: 10px;
+    transition: all .2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 170px;
+}
+
+.rightBtn {
+    margin-left: 10px;
+}
+
+.twitterImg {
+    width: 36px;
+}
+
+.footerSadPiggy {
+    position: absolute;
+    width: 220px;
+    top: -170px;
+    left: calc(50% - 110px);
+    display: none;
+}
+
+.contactDescriptionContainer {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.descriptionText {
+    font-family: 'BalooSemiBold';
+    font-size: 20px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .contact-title-text {
+        font-size: 50px;
+    }
+
+    .contact-container {
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        padding-bottom: 50px;
+    }
+
+    .contactBtnContainer {
+        flex-direction: column;
+    }
+
+    .rightBtn {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .footerSadPiggy {
+        display: block;
+    }
+}
