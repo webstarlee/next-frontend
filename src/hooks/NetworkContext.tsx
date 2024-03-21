@@ -3,7 +3,7 @@ import { switchNetwork } from '@wagmi/core'
 import { useAccount, useNetwork } from 'wagmi';
 
 interface NetworkContextType {
-  chainId: number | 1;
+  chainId: number;
   netMenuOpen: boolean | false;
   toggleNetMenuOpen: () => void;
   changeNetwork: (id: number) => void;

@@ -9,7 +9,7 @@ import injectedModule from "@web3-onboard/injected-wallets";
 import walletConnectModule from "@web3-onboard/walletconnect";
 import WalletPopover from './WalletPopover';
 import { useWeb3Modal } from '@web3modal/react';
-import { useAccount, useDisconnect } from 'wagmi';
+import { useAccount, useDisconnect, useNetwork } from 'wagmi';
 interface HeaderMenuProps {
   isMobile: boolean;
 }
@@ -54,8 +54,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
   const { address, isConnected } = useAccount();
   const { open: openWeb3Modal } = useWeb3Modal();
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const { netMenuOpen, toggleNetMenuOpen, chainId, changeNetwork, changeProvider } = useNetworkCon();
+  const { netMenuOpen, toggleNetMenuOpen, changeNetwork, changeProvider } = useNetworkCon();
   const {connector} = useAccount()
+  const {chain} = useNetwork()
   
   const updateNetwork = (id: number) => { 
     changeProvider();
@@ -91,7 +92,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                 >
                   <Image
                     style={{ width: 25, height: 25, marginRight: 10 }}
-                    src={require(`@/assets/networks/chain_${chainId}.svg`)}
+                    src={require(`@/assets/networks/chain_${chain?.id}.svg`)}
                     alt="flag"
                   />
                   <Image
@@ -111,21 +112,21 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                   [styles.mobile]: isMobile ? true : false,
                 })}
               >
-                {networks.map((chain, index) => {
+                {networks.map((network, index) => {
                   return (
                     <li
                       key={index}
                       className={classNames(styles.menuItem, {
-                        [styles.isActive]: chainId === chain.id,
+                        [styles.isActive]: chain?.id === network.id,
                       })}
-                      onClick={() => updateNetwork(chain.id)}
+                      onClick={() => updateNetwork(network.id)}
                     >
                       <Image
                         style={{ width: 25, height: 25, marginRight: 10 }}
-                        src={require(`@/assets/networks/chain_${chain.id}.svg`)}
+                        src={require(`@/assets/networks/chain_${network.id}.svg`)}
                         alt="flag"
                       />
-                      {chain.label}
+                      {network.label}
                     </li>
                   );
                 })}
@@ -182,10 +183,10 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
               >
                 <Image
                   style={{ width: 25, height: 25, marginRight: 10 }}
-                  src={require(`@/assets/networks/chain_${chainId}.svg`)}
+                  src={require(`@/assets/networks/chain_${chain?.id}.svg`)}
                   alt="flag"
                 />
-                {chainId == 1 ? "Ethereum" : "BSC"}
+                {chain?.id == 1 ? "Ethereum" : "BSC"}
                 <Image
                   className={classNames(styles.dropndownImg, { [styles.open]: netMenuOpen })}
                   width={20}
@@ -203,21 +204,21 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                 [styles.mobile]: isMobile ? true : false,
               })}
             >
-              {networks.map((chain, index) => {
+              {networks.map((network, index) => {
                 return (
                   <li
                     key={index}
                     className={classNames(styles.menuItem, {
-                      [styles.isActive]: chainId === chain.id,
+                      [styles.isActive]: chain?.id === network.id,
                     })}
-                    onClick={() => updateNetwork(chain.id)}
+                    onClick={() => updateNetwork(network.id)}
                   >
                     <Image
                       style={{ width: 25, height: 25, marginRight: 10 }}
-                      src={require(`@/assets/networks/chain_${chain.id}.svg`)}
+                      src={require(`@/assets/networks/chain_${network.id}.svg`)}
                       alt="flag"
                     />
-                    {chain.label}
+                    {network.label}
                   </li>
                 );
               })}
