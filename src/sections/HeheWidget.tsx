@@ -1,16 +1,20 @@
-import { useNetwork } from '@/hooks/NetworkContext';
+import { useNetworkCon } from '@/hooks/NetworkContext';
 // @ts-ignore
 import { Widget } from "@kyberswap/widgets";
 import { init, useWallets, useConnectWallet } from "@web3-onboard/react";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ethers } from 'ethers';
 import walletConnectModule from "@web3-onboard/walletconnect";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ETH_TOKENS, BSC_TOKENS } from '@/utils/tokens';
+import Image from 'next/image';
+import loadingImg from '@/assets/loading.svg'
+import '@/styles/widget.css'
+import { useAccount, useDisconnect } from 'wagmi';
 
 const injected = injectedModule();
 const walletConnect = walletConnectModule({
-    projectId: '1fda3af914357c73ce1abdd1e3968ce7',
+    projectId: '1fda3af914357c73ce1abdd1e3968ce7'
 });
 
 // initialize Onboard
@@ -29,78 +33,95 @@ init({
         label: "BNB Smart Chain Mainnet",
         rpcUrl: "https://bsc.kyberengineering.io",
       },
-      {
-        id: "0x89",
-        token: "BNB",
-        label: "Polygon",
-        rpcUrl: "https://polygon.kyberengineering.io",
-      },
     ],
 });
 
 const defaultTokenOut = {
-    1: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
-    56: "0x55d398326f99059fF775485246999027B3197955",
+    1: "0x488cF9905CD9f5dEa7212B4571c8b1052631Ab8d",
+    56: "0x488cF9905CD9f5dEa7212B4571c8b1052631Ab8d",
 };
 
 const HeheWidget: React.FC = () => {
-    const { chainId, changeNetwork } = useNetwork();
+    const { chainId, changeNetwork } = useNetworkCon();
     const [{ wallet }, connect] = useConnectWallet();
     const connectedWallets = useWallets();
+    const [isLoaded, setLoaded] = useState(false);
+    const { address, isConnected } = useAccount();
+    const {connector} = useAccount()
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoaded(true);
+        }, 2000);
+    }, [wallet])
+
+    const connectedProvider = connector?.options.getProvider()
 
     // create an ethers provider
     let ethersProvider: any;
 
-    if (wallet) {
-        ethersProvider = new ethers.providers.Web3Provider(wallet.provider, "any");
+    if (connectedProvider) {
+        ethersProvider = new ethers.providers.Web3Provider(connectedProvider, "any");
     }
     useEffect(() => {
-        ethersProvider?.getNetwork().then((res: any) => changeNetwork(res.chainId));
-      }, [ethersProvider]);
+      ethersProvider?.getNetwork().then((res: any) => changeNetwork(res.chainId));
+    }, [ethersProvider]);
     
-      useEffect(() => {
-        if (!connectedWallets.length) return;
+    useEffect(() => {
+      if (!connectedWallets.length) return;
+  
+      const connectedWalletsLabelArray = connectedWallets.map(
+        ({ label }) => label
+      );
+      window.localStorage.setItem(
+        "connectedWallets",
+        JSON.stringify(connectedWalletsLabelArray)
+      );
+    }, [connectedWallets, connectedProvider]);
     
-        const connectedWalletsLabelArray = connectedWallets.map(
-          ({ label }) => label
-        );
-        window.localStorage.setItem(
-          "connectedWallets",
-          JSON.stringify(connectedWalletsLabelArray)
-        );
-      }, [connectedWallets, wallet]);
-    
-      useEffect(() => {
-        const previouslyConnectedWallets = JSON.parse(
-          window.localStorage.getItem("connectedWallets") || "[]"
-        );
-    
-        if (previouslyConnectedWallets?.length) {
-          async function setWalletFromLocalStorage() {
-            const walletConnected = await connect({
-              autoSelect: previouslyConnectedWallets[0],
-            });
-          }
-          setWalletFromLocalStorage();
+    useEffect(() => {
+      const previouslyConnectedWallets = JSON.parse(
+        window.localStorage.getItem("connectedWallets") || "[]"
+      );
+  
+      if (previouslyConnectedWallets?.length) {
+        async function setWalletFromLocalStorage() {
+          const walletConnected = await connect({
+            autoSelect: previouslyConnectedWallets[0],
+          });
         }
-      }, [connect]);
+        setWalletFromLocalStorage();
+      }
+    }, [isConnected]);
 
     return (
         <>
-            <Widget
-                client="Hehe"
-                theme={undefined}
-                enableRoute = {true}
-                enableDexes={""}
-                tokenList={chainId == 1 ? ETH_TOKENS : BSC_TOKENS}
-                title={<div>Hehe Widget</div>}
-                width = {450}
-                provider={ethersProvider}
-                // @ts-ignore
-                defaultTokenOut={defaultTokenOut[chainId]}
-                showRate={true}
-                showDetail={true}
-            />
+            {
+                isLoaded
+                ? <div className={'heheWidgetContainer'}>
+                        <Widget
+                            client="Hehe"
+                            theme={undefined}
+                            enableRoute = {true}
+                            enableDexes={""}
+                            tokenList={chainId == 1 ? ETH_TOKENS : BSC_TOKENS}
+                            title={<div>Hehe Widget</div>}
+                            width = {350}
+                            provider={ethersProvider}
+                            // @ts-ignore
+                            defaultTokenOut={defaultTokenOut[chainId]}
+                            showRate={true}
+                            showDetail={true}
+                        />
+                    </div>
+                : <div style={{width: '375px', height: '615px'}}>
+                    <Image
+                        style={{ width: 25, height: 25, position: 'absolute', left: '49%', top: '46%' }}
+                        src={require(`@/assets/loading.svg`)}
+                        alt="flag"
+                    />
+                </div>
+            }
         </>
     )
 }

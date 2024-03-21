@@ -198,7 +198,7 @@ const Home: React.FC<HomeProps> = ({ width = 0 }) => {
       {openTokenAddressesModal && (
         <TokenAddresses
           close={() => openTokenAddress(false)}
-          isMobile={width < 1024 ? true : false}
+          isMobile={width < 768 ? true : false}
         />
       )}
     </>

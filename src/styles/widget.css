@@ -1,0 +1,29 @@
+.heheWidgetContainer .sc-hBxehG:last-child {
+  display: none !important;
+}
+
+.heheWidgetContainer .jAwVIF:last-child span {
+  display: none !important;
+}
+
+.heheWidgetContainer .sc-gScZFl {
+  display: none !important;
+}
+
+.heheWidgetContainer .sc-xWrgk .sc-jGNhvO .sc-ksBlkl:nth-child(4) {
+  display: none !important;
+}
+
+.sc-jGNhvO .sc-hBxehG:nth-child(4) {
+  display: none;
+}
+
+div.sc-dkrFOg:nth-of-type(5) div.sc-ftTHYK span {
+  display: none;
+}
+
+@media (max-width: 450px) {
+    .sc-bcXHqe {
+        width: 300px !important;
+    }
+}

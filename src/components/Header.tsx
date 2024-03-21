@@ -1,48 +1,80 @@
-'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
-import Button from '@/components/Button.tsx';
 import styles from '@/styles/Header.module.css';
 import { useLang } from '@/hooks/LangContext';
-import { useNetwork } from '@/hooks/NetworkContext';
+import { useNetworkCon } from '@/hooks/NetworkContext';
+import { init, useConnectWallet } from "@web3-onboard/react";
+import injectedModule from "@web3-onboard/injected-wallets";
+import walletConnectModule from "@web3-onboard/walletconnect";
+import WalletPopover from './WalletPopover';
 import { useWeb3Modal } from '@web3modal/react';
 import { useAccount, useDisconnect } from 'wagmi';
 interface HeaderMenuProps {
   isMobile: boolean;
 }
 
+const injected = injectedModule();
+const walletConnect = walletConnectModule({
+  projectId: '1fda3af914357c73ce1abdd1e3968ce7'
+});
+
+// initialize Onboard
+init({
+  wallets: [injected, walletConnect],
+  chains: [
+    {
+      id: "0x1",
+      token: "ETH",
+      label: "Ethereum Mainnet",
+      rpcUrl: "https://ethereum.kyberengineering.io",
+    },
+    {
+      id: "0x38",
+      token: "BNB",
+      label: "BNB Smart Chain Mainnet",
+      rpcUrl: "https://bsc.kyberengineering.io",
+    },
+  ],
+});
+
+const networks = [
+  {
+    id: 1,
+    label: 'Ethereum'
+  },
+  {
+    id: 56,
+    label: 'BSC'
+  }
+]
+
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
-  const { open: openWeb3Modal } = useWeb3Modal();
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
-  
+  const { open: openWeb3Modal } = useWeb3Modal();
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const { netMenuOpen, toggleNetMenuOpen, chainId, changeNetwork } = useNetwork();
-
-  const updateNetwork = (id: number) => {
+  const { netMenuOpen, toggleNetMenuOpen, chainId, changeNetwork, changeProvider } = useNetworkCon();
+  const {connector} = useAccount()
+  
+  const updateNetwork = (id: number) => { 
+    changeProvider();
     changeNetwork(id);
     toggleNetMenuOpen();
   };
-  const [rendered, setRendered] = React.useState(false);
-  React.useEffect(() => {
-    setRendered(true)
-  }, []);
 
-  const networks = [
-    {
-      id: 1,
-      label: 'Ethereum'
-    },
-    {
-      id: 56,
-      label: 'BSC'
+  const formatLongWalletAddress = (address: string): string => {
+    if (typeof address !== "string" || address.length < 6) {
+      return "";
     }
-  ]
+    const prefix = address.substring(0, 3);
+    const suffix = address.slice(-4);
+    const middle = "...";
+    const formattedAddress = `${prefix}${middle}${suffix}`;
+  
+    return formattedAddress;
+  };
 
-  if (!rendered) {
-    return ''
-  }
   if (isMobile) {
     return (
       <>
@@ -90,7 +122,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                     >
                       <Image
                         style={{ width: 25, height: 25, marginRight: 10 }}
-                        src={require(`@/assets/networks/${chain.id}.svg`)}
+                        src={require(`@/assets/networks/chain_${chain.id}.svg`)}
                         alt="flag"
                       />
                       {chain.label}
@@ -101,12 +133,35 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
             )}
           </div>
           <div>
-            <button
-              className={styles.connectBtn}
-              onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
-            >
-              {isConnected ? "Disconnect" : "Connect"}
-            </button>
+            {
+              isConnected 
+              ?<WalletPopover
+                  trigger='click'
+                >
+                  <button
+                    className={styles.connectBtn}
+                  >
+                    <Image
+                      width={25}
+                      height={25}
+                      src={require(`@/assets/wallet.svg`)}
+                      alt="Disconnect"
+                    />
+                  </button>
+                </WalletPopover>
+              :<button
+                className={styles.connectBtn}
+                onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
+              >
+                <Image
+                  width={25}
+                  height={25}
+                  src={require('@/assets/wallet.svg')}
+                  alt='wallet'
+                  style={{ minWidth: '25px'}}
+                />
+              </button>
+            }
           </div>
           <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>App</a>
         </div>
@@ -117,7 +172,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
       <div className={classNames(styles.menuBtnBox)}>
         <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
           {
-            isConnected ?
+            isConnected ? 
               <button
                 className={classNames(styles.dropdownBtn, {
                   [styles.open]: netMenuOpen,
@@ -170,12 +225,30 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
           )}
         </div>
         <div>
-          <button
-            className={styles.connectBtn}
-            onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
-          >
-            {isConnected ? "Disconnect" : "Connect Wallet"}
-          </button>
+          {
+            isConnected 
+            ?<WalletPopover
+                trigger='click'
+              >
+                <button
+                  className={styles.connectBtn}
+                >
+                  <Image
+                    width={25}
+                    height={25}
+                    src={require('@/assets/wallet.svg')}
+                    alt='wallet'
+                  /> &nbsp;
+                  {formatLongWalletAddress(address || "")}
+                </button>
+              </WalletPopover>
+            :<button
+              className={styles.connectBtn}
+              onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
+            >
+              Connect Wallet
+            </button>
+          }
         </div>
         <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>Launch App</a>
       </div>
@@ -196,7 +269,6 @@ const Header: React.FC<HeaderProps> = ({ width }) => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-
   }, []);
 
   const handleScroll = () => {
@@ -217,7 +289,7 @@ const Header: React.FC<HeaderProps> = ({ width }) => {
         height={100}
         priority
       />
-      <HeaderMenu isMobile={width < 1024 ? true : false} />
+      <HeaderMenu isMobile={width < 768 ? true : false} />
     </header>
   );
 };

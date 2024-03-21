@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { switchNetwork } from '@wagmi/core'
+import { useAccount, useNetwork } from 'wagmi';
 
 interface NetworkContextType {
   chainId: number | 1;
@@ -8,6 +9,8 @@ interface NetworkContextType {
   changeNetwork: (id: number) => void;
   openModal: boolean | false;
   toggleOpenModal: () => void;
+  changeProvider: () => void;
+  connectedProvider: any;
 }
 
 const networkContext = createContext<NetworkContextType | undefined>(undefined);
@@ -17,13 +20,21 @@ interface NetProviderProps {
 }
 
 export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
-  const [chainId, setChainId] = useState<number>(1);
+  const {connector} = useAccount()
+  const {chain} = useNetwork();
+  // @ts-ignore
+  const [chainId, setChainId] = useState<number>(chain?.id || 1);
   const [netMenuOpen, setNetMenuOpen] = useState<boolean>(false);
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [connectedProvider, setProvider] = useState(connector?.options.getProvider());
 
   const changeNetwork = async (id: number) => {
-    setChainId(id);
-    await switchNetwork({chainId: id})
+    try {
+      const network = await switchNetwork({chainId: id})
+      setChainId(network.id);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   const toggleNetMenuOpen = () => {
@@ -34,6 +45,10 @@ export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
     setOpenModal((prev) => !prev);
   }
 
+  const changeProvider = () => {
+    setProvider(connector?.options.getProvider());
+  }
+
   return (
     <networkContext.Provider
       value={{
@@ -42,7 +57,9 @@ export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
         changeNetwork,
         toggleNetMenuOpen,
         openModal,
-        toggleOpenModal
+        toggleOpenModal,
+        connectedProvider,
+        changeProvider
       }}
     >
       {children}
@@ -50,7 +67,7 @@ export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
   );
 };
 
-export const useNetwork = () => {
+export const useNetworkCon = () => {
   const context = useContext(networkContext);
   if (!context) {
     throw new Error('useRoot must be used within a RootProvider');
