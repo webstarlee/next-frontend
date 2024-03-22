@@ -58,7 +58,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
     return (
       <>
         <div className={classNames(styles.menuBtnBox)}>
-          <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
+          {/* <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
             {
               connectionStat ?
                 <button
@@ -110,9 +110,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                 })}
               </ul>
             )}
-          </div>
+          </div> */}
           <div>
-            {
+            {/* {
               connectionStat 
               ?<WalletPopover
                   trigger='click'
@@ -128,7 +128,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                     />
                   </button>
                 </WalletPopover>
-              :<button
+              : */}
+              <button
                 className={styles.connectBtn}
                 onClick={() => (connectionStat ? disconnect() : openWeb3Modal())}
               >
@@ -140,7 +141,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                   style={{ minWidth: '25px'}}
                 />
               </button>
-            }
+            {/* } */}
           </div>
           <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>App</a>
         </div>
