@@ -39,6 +39,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
 
   const updateNetwork = (id: number) => { 
     changeNetwork(id);
+    toggleNetMenuOpen();
   };
 
   const formatLongWalletAddress = (address: string): string => {
