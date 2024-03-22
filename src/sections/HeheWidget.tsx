@@ -1,4 +1,3 @@
-"use client"
 import { useNetworkCon } from '@/hooks/NetworkContext';
 // @ts-ignore
 import { Widget } from "@kyberswap/widgets";
@@ -43,7 +42,7 @@ const defaultTokenOut = {
 };
 
 const HeheWidget: React.FC = () => {
-    const { chainId, changeNetwork } = useNetworkCon();
+    const { chainId, changeNetwork, connectedProvider } = useNetworkCon();
     const [{ wallet }, connect] = useConnectWallet();
     const connectedWallets = useWallets();
     const [isLoaded, setLoaded] = useState(false);
@@ -56,14 +55,23 @@ const HeheWidget: React.FC = () => {
         }, 2000);
     }, [wallet])
 
-    const connectedProvider = connector?.options.getProvider()
+    // useEffect(() => {
+    //   getProvider()
+    // }, [])
 
     // create an ethers provider
     let ethersProvider: any;
 
-    if (connectedProvider) {
-        ethersProvider = new ethers.providers.Web3Provider(connectedProvider, "any");
-    }
+    // const getProvider = async () => {
+    //   const connectedProvider = await connector?.getProvider()
+      
+      if (connectedProvider) {
+          ethersProvider = new ethers.providers.Web3Provider(connectedProvider, "any");
+      }
+    //   console.log("ethersProvider ===========>", ethersProvider);
+      
+    // }
+
     useEffect(() => {
       ethersProvider?.getNetwork().then((res: any) => changeNetwork(res.chainId));
     }, [ethersProvider]);
@@ -78,7 +86,7 @@ const HeheWidget: React.FC = () => {
         "connectedWallets",
         JSON.stringify(connectedWalletsLabelArray)
       );
-    }, [connectedWallets, connectedProvider]);
+    }, [connectedWallets]);
     
     useEffect(() => {
       const previouslyConnectedWallets = JSON.parse(

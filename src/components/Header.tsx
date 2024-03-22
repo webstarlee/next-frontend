@@ -26,7 +26,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
   const { address, isConnected } = useAccount();
   const { open: openWeb3Modal } = useWeb3Modal();
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const { netMenuOpen, toggleNetMenuOpen, changeNetwork } = useNetworkCon();
+  const { netMenuOpen, toggleNetMenuOpen, changeNetwork, changeProvider } = useNetworkCon();
   const {connector} = useAccount()
   const {chain} = useNetwork()
   const [connectionStat, setConnectionStat] = useState<boolean>();
@@ -40,6 +40,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
   const updateNetwork = (id: number) => { 
     changeNetwork(id);
     toggleNetMenuOpen();
+    changeProvider();
   };
 
   const formatLongWalletAddress = (address: string): string => {

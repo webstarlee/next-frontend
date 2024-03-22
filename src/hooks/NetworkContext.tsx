@@ -9,8 +9,8 @@ interface NetworkContextType {
   changeNetwork: (id: number) => void;
   openModal: boolean | false;
   toggleOpenModal: () => void;
-  // changeProvider: () => void;
-  // connectedProvider: any;
+  changeProvider: () => void;
+  connectedProvider: any;
 }
 
 const networkContext = createContext<NetworkContextType | undefined>(undefined);
@@ -26,7 +26,7 @@ export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
   const [chainId, setChainId] = useState<number>(chain?.id || 1);
   const [netMenuOpen, setNetMenuOpen] = useState<boolean>(false);
   const [openModal, setOpenModal] = useState<boolean>(false);
-  // const [connectedProvider, setProvider] = useState(connector?.options.getProvider());
+  const [connectedProvider, setProvider] = useState<any>();
 
   const changeNetwork = async (id: number) => {
     try {
@@ -45,9 +45,10 @@ export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
     setOpenModal((prev) => !prev);
   }
 
-  // const changeProvider = () => {
-  //   setProvider(connector?.options.getProvider());
-  // }
+  const changeProvider = async () => {
+    const provider = await connector?.getProvider()
+    setProvider(provider);
+  }
 
   return (
     <networkContext.Provider
@@ -58,8 +59,8 @@ export const NetworkProvider: React.FC<NetProviderProps> = ({ children }) => {
         toggleNetMenuOpen,
         openModal,
         toggleOpenModal,
-        // connectedProvider,
-        // changeProvider
+        connectedProvider,
+        changeProvider
       }}
     >
       {children}
