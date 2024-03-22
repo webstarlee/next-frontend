@@ -8,9 +8,8 @@ import walletConnectModule from "@web3-onboard/walletconnect";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ETH_TOKENS, BSC_TOKENS } from '@/utils/tokens';
 import Image from 'next/image';
-import loadingImg from '@/assets/loading.svg'
 import '@/styles/widget.css'
-import { useAccount, useDisconnect } from 'wagmi';
+import { useAccount } from 'wagmi';
 
 const injected = injectedModule();
 const walletConnect = walletConnectModule({
@@ -42,12 +41,11 @@ const defaultTokenOut = {
 };
 
 const HeheWidget: React.FC = () => {
-    const { chainId, changeNetwork, connectedProvider } = useNetworkCon();
+    const { chainId, changeNetwork, connectedProvider, changeProvider } = useNetworkCon();
     const [{ wallet }, connect] = useConnectWallet();
     const connectedWallets = useWallets();
     const [isLoaded, setLoaded] = useState(false);
-    const { address, isConnected } = useAccount();
-    const {connector} = useAccount()
+    const { isConnected } = useAccount();
 
     useEffect(() => {
         setTimeout(() => {
@@ -55,22 +53,14 @@ const HeheWidget: React.FC = () => {
         }, 2000);
     }, [wallet])
 
-    // useEffect(() => {
-    //   getProvider()
-    // }, [])
-
+    changeProvider();
+    
     // create an ethers provider
     let ethersProvider: any;
 
-    // const getProvider = async () => {
-    //   const connectedProvider = await connector?.getProvider()
-      
-      if (connectedProvider) {
-          ethersProvider = new ethers.providers.Web3Provider(connectedProvider, "any");
-      }
-    //   console.log("ethersProvider ===========>", ethersProvider);
-      
-    // }
+    if (connectedProvider) {
+        ethersProvider = new ethers.providers.Web3Provider(connectedProvider, "any");
+    }
 
     useEffect(() => {
       ethersProvider?.getNetwork().then((res: any) => changeNetwork(res.chainId));
