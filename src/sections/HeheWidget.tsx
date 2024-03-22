@@ -1,3 +1,4 @@
+"use client"
 import { useNetworkCon } from '@/hooks/NetworkContext';
 // @ts-ignore
 import { Widget } from "@kyberswap/widgets";
@@ -8,9 +9,9 @@ import walletConnectModule from "@web3-onboard/walletconnect";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ETH_TOKENS, BSC_TOKENS } from '@/utils/tokens';
 import Image from 'next/image';
+import loadingImg from '@/assets/loading.svg'
 import '@/styles/widget.css'
-import { useAccount, useDisconnect, useNetwork } from 'wagmi';
-import { publicProvider } from 'wagmi/providers/public';
+import { useAccount, useDisconnect } from 'wagmi';
 
 const injected = injectedModule();
 const walletConnect = walletConnectModule({
@@ -48,7 +49,6 @@ const HeheWidget: React.FC = () => {
     const [isLoaded, setLoaded] = useState(false);
     const { address, isConnected } = useAccount();
     const {connector} = useAccount()
-    const {chain} = useNetwork();
 
     useEffect(() => {
         setTimeout(() => {
@@ -56,33 +56,14 @@ const HeheWidget: React.FC = () => {
         }, 2000);
     }, [wallet])
 
-    const connectedProvider = connector?.options.getProvider();
-    const connectedProvider2 = connector?.getProvider();
+    const connectedProvider = connector?.options.getProvider()
 
-    
-    
     // create an ethers provider
     let ethersProvider: any;
-    
-    // if (connectedProvider) {
-    //   ethersProvider = new ethers.providers.Web3Provider(connectedProvider2, 'any');
-    // }
 
-// @ts-ignore
-    if (window?.ethereum) {
-      // For modern dapp browsers
-// @ts-ignore
-      ethersProvider = new ethers.providers.Web3Provider(window.ethereum);
-// @ts-ignore
-    } else if (window.web3?.currentProvider) {
-      // For older dapp browsers and Trust Wallet
-// @ts-ignore
-      ethersProvider = new ethers.providers.Web3Provider(window.web3.currentProvider);
-    } else {
-      // Default provider, e.g. Mainnet - you can change this to handle non-dapp browsers as per your use case
-      ethersProvider = ethers.getDefaultProvider('homestead');
+    if (connectedProvider) {
+        ethersProvider = new ethers.providers.Web3Provider(connectedProvider, "any");
     }
-
     useEffect(() => {
       ethersProvider?.getNetwork().then((res: any) => changeNetwork(res.chainId));
     }, [ethersProvider]);
