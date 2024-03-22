@@ -2,41 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import classNames from 'classnames';
 import styles from '@/styles/Header.module.css';
-import { useLang } from '@/hooks/LangContext';
 import { useNetworkCon } from '@/hooks/NetworkContext';
-import { init, useConnectWallet } from "@web3-onboard/react";
-import injectedModule from "@web3-onboard/injected-wallets";
-import walletConnectModule from "@web3-onboard/walletconnect";
 import WalletPopover from './WalletPopover';
 import { useWeb3Modal } from '@web3modal/react';
 import { useAccount, useDisconnect, useNetwork } from 'wagmi';
 interface HeaderMenuProps {
   isMobile: boolean;
 }
-
-const injected = injectedModule();
-const walletConnect = walletConnectModule({
-  projectId: '1fda3af914357c73ce1abdd1e3968ce7'
-});
-
-// initialize Onboard
-init({
-  wallets: [injected, walletConnect],
-  chains: [
-    {
-      id: "0x1",
-      token: "ETH",
-      label: "Ethereum Mainnet",
-      rpcUrl: "https://ethereum.kyberengineering.io",
-    },
-    {
-      id: "0x38",
-      token: "BNB",
-      label: "BNB Smart Chain Mainnet",
-      rpcUrl: "https://bsc.kyberengineering.io",
-    },
-  ],
-});
 
 const networks = [
   {
@@ -57,11 +29,17 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
   const { netMenuOpen, toggleNetMenuOpen, changeNetwork, changeProvider } = useNetworkCon();
   const {connector} = useAccount()
   const {chain} = useNetwork()
-  
+  const [connectionStat, setConnectionStat] = useState<boolean>();
+  const [addr, setAddr] = useState<string>()
+
+  useEffect(() => {
+    setConnectionStat(isConnected);
+    setAddr(address);
+  }, [address, isConnected])
+
   const updateNetwork = (id: number) => { 
     changeProvider();
     changeNetwork(id);
-    toggleNetMenuOpen();
   };
 
   const formatLongWalletAddress = (address: string): string => {
@@ -76,7 +54,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
     return formattedAddress;
   };
 
-  if (isMobile) {
+  // if (isMobile) {
     return (
       <>
         <div className={classNames(styles.menuBtnBox)}>
@@ -168,93 +146,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
         </div>
       </>
     );
-  } else {
-    return (
-      <div className={classNames(styles.menuBtnBox)}>
-        <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
-          {
-            isConnected ? 
-              <button
-                className={classNames(styles.dropdownBtn, {
-                  [styles.open]: netMenuOpen,
-                  [styles.mobile]: isMobile ? true : false,
-                })}
-                onClick={() => toggleNetMenuOpen()}
-              >
-                <Image
-                  style={{ width: 25, height: 25, marginRight: 10 }}
-                  src={require(`@/assets/networks/chain_${chain?.id}.svg`)}
-                  alt="flag"
-                />
-                {chain?.id == 1 ? "Ethereum" : "BSC"}
-                <Image
-                  className={classNames(styles.dropndownImg, { [styles.open]: netMenuOpen })}
-                  width={20}
-                  height={20}
-                  src="/images/down.png"
-                  alt="down image"
-                />
-              </button>
-            : null
-          }
-          {netMenuOpen && (
-            <ul
-              ref={dropdownRef}
-              className={classNames(styles.menuContainer, {
-                [styles.mobile]: isMobile ? true : false,
-              })}
-            >
-              {networks.map((network, index) => {
-                return (
-                  <li
-                    key={index}
-                    className={classNames(styles.menuItem, {
-                      [styles.isActive]: chain?.id === network.id,
-                    })}
-                    onClick={() => updateNetwork(network.id)}
-                  >
-                    <Image
-                      style={{ width: 25, height: 25, marginRight: 10 }}
-                      src={require(`@/assets/networks/chain_${network.id}.svg`)}
-                      alt="flag"
-                    />
-                    {network.label}
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-        </div>
-        <div>
-          {
-            isConnected 
-            ?<WalletPopover
-                trigger='click'
-              >
-                <button
-                  className={styles.connectBtn}
-                >
-                  <Image
-                    width={25}
-                    height={25}
-                    src={require('@/assets/wallet.svg')}
-                    alt='wallet'
-                  /> &nbsp;
-                  {formatLongWalletAddress(address || "")}
-                </button>
-              </WalletPopover>
-            :<button
-              className={styles.connectBtn}
-              onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
-            >
-              Connect Wallet
-            </button>
-          }
-        </div>
-        <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>Launch App</a>
-      </div>
-    );
-  }
+  // }
 };
 
 interface HeaderProps {
