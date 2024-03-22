@@ -7,7 +7,7 @@ import { useLang } from '@/hooks/LangContext';
 import ReferalModal from '@/components/PresaleReferalModal';
 import TokenAddresses from '@/components/tokenAddresses';
 import { useParallax } from 'react-scroll-parallax';
-import HeheWidget from './HeheWidget';
+// import HeheWidget from './HeheWidget';
 interface HomeProps {
   width: number;
 }
@@ -127,7 +127,7 @@ const Home: React.FC<HomeProps> = ({ width = 0 }) => {
               // ref={heheImg.ref}
               className={classNames(styles.heheWidget)}
             >
-              <HeheWidget />
+              {/* <HeheWidget /> */}
             </div>
           </div>
           <div className={styles.mobileHomeBtnContainer}>
