@@ -127,7 +127,7 @@ const Home: React.FC<HomeProps> = ({ width = 0 }) => {
               // ref={heheImg.ref}
               className={classNames(styles.heheWidget)}
             >
-              {/* <HeheWidget /> */}
+              <HeheWidget />
             </div>
           </div>
           <div className={styles.mobileHomeBtnContainer}>

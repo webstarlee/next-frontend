@@ -26,7 +26,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
   const { address, isConnected } = useAccount();
   const { open: openWeb3Modal } = useWeb3Modal();
   const dropdownRef = useRef<HTMLUListElement>(null);
-  const { netMenuOpen, toggleNetMenuOpen, changeNetwork, changeProvider } = useNetworkCon();
+  const { netMenuOpen, toggleNetMenuOpen, changeNetwork } = useNetworkCon();
   const {connector} = useAccount()
   const {chain} = useNetwork()
   const [connectionStat, setConnectionStat] = useState<boolean>();
@@ -38,7 +38,6 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
   }, [address, isConnected])
 
   const updateNetwork = (id: number) => { 
-    changeProvider();
     changeNetwork(id);
   };
 
@@ -54,13 +53,13 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
     return formattedAddress;
   };
 
-  // if (isMobile) {
+  if (isMobile) {
     return (
       <>
         <div className={classNames(styles.menuBtnBox)}>
-          {/* <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
+          <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
             {
-              connectionStat ?
+              isConnected ?
                 <button
                   className={classNames(styles.dropdownBtn, {
                     [styles.open]: netMenuOpen,
@@ -70,7 +69,7 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                 >
                   <Image
                     style={{ width: 25, height: 25, marginRight: 10 }}
-                    src={require(`@/assets/networks/chain_${chain?.id || 1}.svg`)}
+                    src={require(`@/assets/networks/chain_${chain?.id}.svg`)}
                     alt="flag"
                   />
                   <Image
@@ -110,10 +109,10 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                 })}
               </ul>
             )}
-          </div> */}
+          </div>
           <div>
-            {/* {
-              connectionStat 
+            {
+              isConnected 
               ?<WalletPopover
                   trigger='click'
                 >
@@ -128,10 +127,9 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                     />
                   </button>
                 </WalletPopover>
-              : */}
-              <button
+              :<button
                 className={styles.connectBtn}
-                onClick={() => (connectionStat ? disconnect() : openWeb3Modal())}
+                onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
               >
                 <Image
                   width={25}
@@ -141,100 +139,99 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ isMobile }) => {
                   style={{ minWidth: '25px'}}
                 />
               </button>
-            {/* } */}
+            }
           </div>
           <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>App</a>
         </div>
       </>
     );
-  // }
-  //  else {
-  //   return (
-  //     <div className={classNames(styles.menuBtnBox)}>
-  //       <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
-  //         {
-  //           connectionStat ? 
-  //             <button
-  //               className={classNames(styles.dropdownBtn, {
-  //                 [styles.open]: netMenuOpen,
-  //                 [styles.mobile]: isMobile ? true : false,
-  //               })}
-  //               onClick={() => toggleNetMenuOpen()}
-  //             >
-  //               <Image
-  //                 style={{ width: 25, height: 25, marginRight: 10 }}
-  //                 src={require(`@/assets/networks/chain_${chain?.id}.svg`)}
-  //                 alt="flag"
-  //               />
-  //               {chain?.id == 1 ? "Ethereum" : "BSC"}
-  //               <Image
-  //                 className={classNames(styles.dropndownImg, { [styles.open]: netMenuOpen })}
-  //                 width={20}
-  //                 height={20}
-  //                 src="/images/down.png"
-  //                 alt="down image"
-  //               />
-  //             </button>
-  //           : null
-  //         }
-  //         {netMenuOpen && (
-  //           <ul
-  //             ref={dropdownRef}
-  //             className={classNames(styles.menuContainer, {
-  //               [styles.mobile]: isMobile ? true : false,
-  //             })}
-  //           >
-  //             {networks.map((network, index) => {
-  //               return (
-  //                 <li
-  //                   key={index}
-  //                   className={classNames(styles.menuItem, {
-  //                     [styles.isActive]: chain?.id === network.id,
-  //                   })}
-  //                   onClick={() => updateNetwork(network.id)}
-  //                 >
-  //                   <Image
-  //                     style={{ width: 25, height: 25, marginRight: 10 }}
-  //                     src={require(`@/assets/networks/chain_${network.id}.svg`)}
-  //                     alt="flag"
-  //                   />
-  //                   {network.label}
-  //                 </li>
-  //               );
-  //             })}
-  //           </ul>
-  //         )}
-  //       </div>
-  //       <div>
-  //         {
-  //           connectionStat 
-  //           ?<WalletPopover
-  //               trigger='click'
-  //             >
-  //               <button
-  //                 className={styles.connectBtn}
-  //               >
-  //                 <Image
-  //                   width={25}
-  //                   height={25}
-  //                   src={require('@/assets/wallet.svg')}
-  //                   alt='wallet'
-  //                 /> &nbsp;
-  //                 {formatLongWalletAddress(addr || "")}
-  //               </button>
-  //             </WalletPopover>
-  //           :<button
-  //             className={styles.connectBtn}
-  //             onClick={() => (connectionStat ? disconnect() : openWeb3Modal())}
-  //           >
-  //             Connect Wallet
-  //           </button>
-  //         }
-  //       </div>
-  //       <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>Launch App</a>
-  //     </div>
-  //   );
-  // }
+  } else {
+    return (
+      <div className={classNames(styles.menuBtnBox)}>
+        <div className={classNames(styles.dropdownContainer, { [styles.open]: netMenuOpen })}>
+          {
+            isConnected ? 
+              <button
+                className={classNames(styles.dropdownBtn, {
+                  [styles.open]: netMenuOpen,
+                  [styles.mobile]: isMobile ? true : false,
+                })}
+                onClick={() => toggleNetMenuOpen()}
+              >
+                <Image
+                  style={{ width: 25, height: 25, marginRight: 10 }}
+                  src={require(`@/assets/networks/chain_${chain?.id}.svg`)}
+                  alt="flag"
+                />
+                {chain?.id == 1 ? "Ethereum" : "BSC"}
+                <Image
+                  className={classNames(styles.dropndownImg, { [styles.open]: netMenuOpen })}
+                  width={20}
+                  height={20}
+                  src="/images/down.png"
+                  alt="down image"
+                />
+              </button>
+            : null
+          }
+          {netMenuOpen && (
+            <ul
+              ref={dropdownRef}
+              className={classNames(styles.menuContainer, {
+                [styles.mobile]: isMobile ? true : false,
+              })}
+            >
+              {networks.map((network, index) => {
+                return (
+                  <li
+                    key={index}
+                    className={classNames(styles.menuItem, {
+                      [styles.isActive]: chain?.id === network.id,
+                    })}
+                    onClick={() => updateNetwork(network.id)}
+                  >
+                    <Image
+                      style={{ width: 25, height: 25, marginRight: 10 }}
+                      src={require(`@/assets/networks/chain_${network.id}.svg`)}
+                      alt="flag"
+                    />
+                    {network.label}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+        </div>
+        <div>
+          {
+            isConnected 
+            ?<WalletPopover
+                trigger='click'
+              >
+                <button
+                  className={styles.connectBtn}
+                >
+                  <Image
+                    width={25}
+                    height={25}
+                    src={require('@/assets/wallet.svg')}
+                    alt='wallet'
+                  /> &nbsp;
+                  {formatLongWalletAddress(address || "")}
+                </button>
+              </WalletPopover>
+            :<button
+              className={styles.connectBtn}
+              onClick={() => (isConnected ? disconnect() : openWeb3Modal())}
+            >
+              Connect Wallet
+            </button>
+          }
+        </div>
+        <a href='https://app.hehe.to' target="_blank" className={styles.launchBtn}>Launch App</a>
+      </div>
+    );
+  }
 };
 
 interface HeaderProps {
